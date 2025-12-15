@@ -1,0 +1,11 @@
+app = "pod-trend-worker"
+primary_region = "ams"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  ENV = "production"
+
+[processes]
+  worker = "celery -A app.core.celery_app:celery_app worker -l INFO"
